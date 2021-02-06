@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Dashboard</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <style> 
+    #formCateg, #AddCateg {
+      text-align: center;
+    }
+    #formCateg {
+      padding: 20px;
+      display: none;
+    }
+    </style>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-warning navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="index.html" class="nav-link">Home</a>
+      </li>
+    </ul>
+
+    <!-- SEARCH FORM -->
+    <form class="form-inline ml-3">
+      <div class="input-group input-group-sm">
+        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-navbar" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">  
+      <li class="nav-item">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+          <i class="fas fa-user-cog"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-warning elevation-4">
+    <!-- Brand Logo -->
+    <a href="index.html" class="brand-link">
+      <img src="dist/img/logo.png" alt=" " class="brand-image img-circle elevation-3"
+           style="opacity: .8">
+      <span class="brand-text font-weight-light">MCADo</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar ">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="dist/img/admin.png" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">Admin</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item has-treeview menu-open">
+            <a href="./index.html" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Dashboard
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="fas fa-bullhorn nav-icon"></i>
+              <p>
+                Promo
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="fas fa-user-plus nav-icon" aria-hidden="true"></i>
+              <p>
+                Customer loyal
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="fas fa-tablets nav-icon"></i>
+              <p>
+                Table service trick
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="pages/tables/data-apprenant.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>list</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/forms/add-apprenant.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ajouter</p>
+                </a>
+              </li>
+            </ul>
+          </li>          
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Dashboard</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+        <!-- Main content -->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-8">
+            <!-- /.card -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Product table</h3>
+                <div class="float-right">
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-warning btn-sm text-white" data-toggle="modal" data-target="#addProduct">
+                    Add new product <i class="fab fa-product-hunt"></i>
+                  </button>
+                                  
+                  <!-- Modal add product -->
+                  <div class="modal fade" id="addProduct" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header bg-warning ">
+                          <h5 class="modal-title text-white">New product</h5>
+                            <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                          <!-- form start -->
+                          <div class="card-body">
+                            <div class="form-group">
+                              <label for="productName">Product Name</label>
+                              <input type="text" class="form-control" id="productName" placeholder="Product Name">
+                            </div>
+                            <div class="form-group">
+                              <label for="productPrice">Price</label>
+                              <input type="text" class="form-control" id="productPrice" placeholder="00.0">
+                            </div>
+                            <div class="form-group">
+                              <label for="sousCategID">Sous categorie</label>
+                              <select class="form-control" id="sousCategID" >
+                                <option value="">Select sous categorie</option>
+                              </select>
+                            </div>
+                            <div class="form-group">
+                              <label for="productImage">File input</label>
+                              <div class="input-group">
+                                <div class="custom-file">
+                                  <input type="file" class="custom-file-input" id="productImage">
+                                  <label class="custom-file-label" for="productImage">Select Image</label>
+                                </div>
+                                <div class="input-group-append">
+                                  <span class="input-group-text" id="">Upload</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" id="add_product" class="btn btn-warning text-white">Save</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive">
+                <table id="prodTable" class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th width="22">Photo</th>
+                      <th>Product Name</th>
+                      <th>Price</th>
+                      <th>Sous categorie</th>
+                      <th width=auto>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="getProduct">
+
+                    <!-- get data products  -->
+
+                  </tbody>
+                  <tfoot>
+                    <th width="100">Photo</th>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th width=80>Action</th>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <div class="col-sm-4">
+            <div class="card">
+              <button id="addCateg" class="form-control btn btn-dark">Add new categorie <i class="fas fa-plus-square"></i></button>
+              <form id="formCateg" class="form-group">
+                <input type="text" id="categorie_name" class="form-control" placeholder="Catégorie name">
+                <input type="submit" id="add_categrie" class="form-control btn btn-dark w-50 mt-3" value="Save">
+              </form>
+              <div class="card-header">
+                <h3 class="card-title">Categorie</h3>
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0" style="height: 300px;">
+                <table class="table table-hover table-head-fixed text-nowrap" >
+                  <thead>
+                    <tr>
+                      <th>Categorie Name</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="getCategory">
+
+                    <!-- get data categories -->
+
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+            <hr>
+            <div class="card">
+              <button  class="form-control btn btn-info">Add new Sous categorie <i class="fas fa-plus-square"></i></button>
+              <form class="form-group p-3">
+                <input type="text" id="sCateg_name" class="form-control my-2" placeholder="Sous catégorie name">
+                <select  id="selectCateg" class="form-control my-2">
+                  <option value="-">Select Categorie</option>
+                </select>
+                <center>
+                  <input type="button" id="add_sous_categ"  class="form-control btn btn-info w-50 mt-3" value="Save">
+                </center>
+              </form>
+              <div class="card-header">
+                <h3 class="card-title">Categorie</h3>
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0" style="height: 300px;">
+                <table class="table table-hover table-head-fixed text-nowrap" >
+                  <thead>
+                    <tr>
+                      <th>Sous Categorie Name</th>
+                      <th>Categorie Name</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="getSousCategory">
+
+                    <!-- get data sous categories -->
+
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2021 <a href="http://youcode.ma">YouCode Safi</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 1.0
+    </div>
+  </footer>
+
+</div>
+<!-- ./wrapper -->
+
+<!-- dashboard srcipts -->
+<script src="dist/js/dahsboard/categorie.js"></script>
+<script src="dist/js/dahsboard/sous-categorie.js"></script>
+<script src="dist/js/dahsboard/product.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables -->
+<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+<!-- page script -->
+<script>
+  $(function () {
+    $("#prodTable").DataTable({
+      "autoWidth": true,
+    });
+  });
+  
+</script>
+</body>
+</html>
