@@ -18,6 +18,17 @@ router.get('/', async (req, res, next)=>{
     }
 });
 
+// FIND DATA SOUS CATEGORIE BY ID
+router.get('/:id', async (req, res, next)=>{
+   
+    try {
+        const sous_categorie = await Sous_categorie.findById(req.params.id);
+        res.json(sous_categorie);
+    } catch (err) {
+        res.json({message:err});
+    }
+});
+
 // Create new sous categories 
 router.post('/add', async (req, res, next)=>{
     const sousCateg = new Sous_categorie({
@@ -38,6 +49,21 @@ router.delete('/delete/:id', async (req, res, next)=>{
     try {
         const sousCateg = await Sous_categorie.remove({_id:req.params.id});
         res.json(sousCateg);
+    } catch (err) {
+        res.json({message:err});
+    }
+});
+
+// Update Sous categorie 
+router.patch('/update/:id', async (req, res, next)=>{
+    try {
+        const updateSousCat = await Sous_categorie.updateMany(
+            {_id: req.params.id},
+            {$set:{
+                sous_categorie_name:req.body.sous_categorie_name,
+                categorie_id: req.body.categorie_id
+            }});
+        res.json(updateSousCat);
     } catch (err) {
         res.json({message:err});
     }

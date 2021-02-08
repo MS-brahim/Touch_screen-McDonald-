@@ -4,7 +4,7 @@ const Sous_categorie = require('./Sous-categorie');
 const productSchema = new mongoose.Schema({
     product_name:{
         type:String,
-        // required:true
+        required:true
     },
     product_image:{
         type:String,
@@ -12,12 +12,12 @@ const productSchema = new mongoose.Schema({
     },
     price:{
         type:Number,
-        // required:true
+        required:true
     },
     sous_categorie_id:{
         type:mongoose.Schema.Types.ObjectId,
         ref:Sous_categorie,
-        // required:false
+        required:false
     },
     create_at:{
         type:Date,

@@ -18,6 +18,17 @@ router.get('/', async (req, res, next)=>{
     }
 });
 
+// FIND DATA CATEGORIE BY ID
+router.get('/:id', async (req, res, next)=>{
+   
+    try {
+        const categorie = await Categorie.findById(req.params.id);
+        res.json(categorie);
+    } catch (err) {
+        res.json({message:err});
+    }
+});
+
 // Create new categorie 
 router.post('/add', async (req, res, next)=>{
     const categorie = new Categorie({

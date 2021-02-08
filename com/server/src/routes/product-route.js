@@ -39,6 +39,17 @@ router.get('/', async (req, res, next)=>{
     }
 });
 
+// FIND DATA PRODUCT BY ID
+router.get('/:id', async (req, res, next)=>{
+   
+    try {
+        const product = await Product.findById(req.params.id);
+        res.json(product);
+    } catch (err) {
+        res.json({message:err});
+    }
+});
+
 // Create new product 
 router.post('/add', async (req, res, next)=>{
 

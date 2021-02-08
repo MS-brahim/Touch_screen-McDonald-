@@ -19,7 +19,6 @@ router.get('/', async (req, res, next)=>{
     }
 });
 
-
 // FIND DATA TABLE BY ID
 router.get('/:id', async (req, res, next)=>{
    
@@ -48,9 +47,9 @@ router.post('/add', async (req, res, next)=>{
 // UPDATE STATUS TABLE 
 router.patch('/update/:id', async (req, res, next)=>{
     try {
-        const tableEdit = await ServiceTabe.findByIdAndUpdate(
+        const tableEdit = await ServiceTabe.updateMany(
             {_id:req.params.id},
-            {$set:{status_table:req.body.status_table}});
+            {$set:{table:req.body.table,status_table:req.body.status_table}});
             res.json(tableEdit);
     } catch (error) {
         res.json({message:error})
