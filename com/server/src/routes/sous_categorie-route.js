@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 router.use(bodyParser.json());
 
 // models
-const Sous_categorie = require('../models/Sous_categorie');
+const Sous_categorie = require('../models/Sous-categorie');
 
 // find all sous categories
 router.get('/', async (req, res, next)=>{

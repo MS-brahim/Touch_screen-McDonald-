@@ -93,7 +93,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview menu-open">
+          <li class="nav-item has-treeview">
             <a href="./index.html" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
@@ -118,14 +118,14 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="service-table.html" class="nav-link">
               <i class="fas fa-tablets nav-icon"></i>
               <p>
-                Table service trick
-                <i class="fas fa-angle-left right"></i>
+                Table service
+                <!-- <i class="fas fa-angle-left right"></i> -->
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            <!-- <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="pages/tables/data-apprenant.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -138,7 +138,7 @@
                   <p>Ajouter</p>
                 </a>
               </li>
-            </ul>
+            </ul> -->
           </li>          
         </ul>
       </nav>
@@ -186,7 +186,7 @@
                   <!-- Modal add product -->
                   <div class="modal fade" id="addProduct" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                     <div class="modal-dialog" role="document">
-                      <div class="modal-content">
+                      <form class="modal-content" method="POST" enctype="multipart/form-data">
                         <div class="modal-header bg-warning ">
                           <h5 class="modal-title text-white">New product</h5>
                             <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
@@ -214,7 +214,7 @@
                               <label for="productImage">File input</label>
                               <div class="input-group">
                                 <div class="custom-file">
-                                  <input type="file" class="custom-file-input" id="productImage">
+                                  <input type="file" name="fileImg" class="custom-file-input" id="productImage">
                                   <label class="custom-file-label" for="productImage">Select Image</label>
                                 </div>
                                 <div class="input-group-append">
@@ -225,10 +225,10 @@
                           </div>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" id="add_product" class="btn btn-warning text-white">Save</button>
+                          <button type="reset" class="btn btn-secondary" data-dismiss="modal">Reset</button>
+                          <button type="submit" id="add_product" class="btn btn-warning text-white">Save</button>
                         </div>
-                      </div>
+                      </form>
                     </div>
                   </div>
                 </div>
@@ -306,7 +306,7 @@
               <form class="form-group p-3">
                 <input type="text" id="sCateg_name" class="form-control my-2" placeholder="Sous catégorie name">
                 <select  id="selectCateg" class="form-control my-2">
-                  <option value="-">Select Categorie</option>
+                  <option value="undefined">Select Categorie</option>
                 </select>
                 <center>
                   <input type="button" id="add_sous_categ"  class="form-control btn btn-info w-50 mt-3" value="Save">

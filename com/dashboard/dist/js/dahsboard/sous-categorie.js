@@ -20,9 +20,15 @@ $(function () {
         url: 'http://localhost:3000/sous_categorie',
         success: function(sousCategory) {
             $.each(sousCategory, function(i, rowSC) {
+                let categName;
+                if (rowSC.categorie_id===undefined) {
+                    categName="<b>-</b>";
+                }else{
+                    categName=rowSC.categorie_id.categorie_name
+                }
                 $sousCateg.append(`<tr>
                         <td>${rowSC.sous_categorie_name}</td>
-                        <td>${rowSC.categorie_id.categorie_name}</td>
+                        <td>${categName}</td>
                         <td class="text-center py-0 align-middle">
                             <div class="btn-group btn-group-sm">
                                 <a type="button" class="btn btn-info text-white"><i class="fas fa-edit"></i></a>

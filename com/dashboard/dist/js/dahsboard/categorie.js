@@ -15,9 +15,6 @@ $(function () {
                     </div>
                 </td></tr>`)
             });
-        },
-        error: function() {
-            alert('err');
         }
     });
 

@@ -22,7 +22,7 @@ $(function () {
                 
                 getProd.append(`
                 <tr>
-                    <td><img src="dist/img/burger.jpeg" alt="" width="100"></td>
+                    <td><img src="uploads/${prodRow.product_image}" alt="" width="100"></td>
                     <td>${prodRow.product_name}</td>
                     <td>${prodRow.price}</td>
                     <td>${prodRow.sous_categorie_id.sous_categorie_name}</td>
@@ -48,6 +48,7 @@ $(function () {
         $.post({
             method:'POST',
             url:'http://localhost:3000/product/add',
+            processData: true,
             data: {
                 product_name        :$productName.val(),
                 price               :$productPrice.val(),
