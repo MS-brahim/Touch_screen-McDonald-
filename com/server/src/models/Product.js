@@ -17,7 +17,6 @@ const productSchema = new mongoose.Schema({
     sous_categorie_id:{
         type:mongoose.Schema.Types.ObjectId,
         ref:Sous_categorie,
-        required:false
     },
     create_at:{
         type:Date,

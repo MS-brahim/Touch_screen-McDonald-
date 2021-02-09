@@ -21,14 +21,14 @@ $(function () {
         success: function(sousCategory) {
             $.each(sousCategory, function(i, rowSC) {
                 let categName;
-                if (rowSC.categorie_id===undefined) {
+                if (rowSC.sous_categorie_name=="") {
                     categName="<b>-</b>";
                 }else{
-                    categName=rowSC.categorie_id.categorie_name
+                    categName=rowSC.sous_categorie_name
                 }
                 $sousCateg.append(`<tr>
-                        <td>${rowSC.sous_categorie_name}</td>
                         <td>${categName}</td>
+                        <td>${rowSC.categorie_id.categorie_name}</td>
                         <td class="text-center py-0 align-middle">
                             <div class="btn-group btn-group-sm">
                                 <a type="button" class="btn btn-info text-white"><i class="fas fa-edit"></i></a>
@@ -46,8 +46,8 @@ $(function () {
 $('#add_sous_categ').on('click', function(e){
     var $sCateg_name = $('#sCateg_name');
     var $selectCateg = $('#selectCateg');
-    if ($sCateg_name.val()=="") {
-        $sCateg_name.addClass('is-invalid');
+    if ($selectCateg.val()=="") {
+        $selectCateg.addClass('is-invalid');
         e.preventDefault();
     } else {
         $.post({

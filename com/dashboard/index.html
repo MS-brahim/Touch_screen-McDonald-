@@ -205,7 +205,7 @@
                   <!-- Modal add product -->
                   <div class="modal fade" id="addProduct" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                     <div class="modal-dialog" role="document">
-                      <form class="modal-content" method="POST" enctype="multipart/form-data">
+                      <form class="modal-content"  >
                         <div class="modal-header bg-warning ">
                           <h5 class="modal-title text-white">New product</h5>
                             <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
@@ -273,7 +273,7 @@
                     <th width="100">Photo</th>
                     <th>Product Name</th>
                     <th>Price</th>
-                    <th>Category</th>
+                    <th>Sous categorie</th>
                     <th width=80>Action</th>
                   </tfoot>
                 </table>
@@ -327,7 +327,7 @@
               <form class="form-group p-3">
                 <input type="text" id="sCateg_name" class="form-control my-2" placeholder="Sous catégorie name">
                 <select  id="selectCateg" class="form-control my-2">
-                  <option value="undefined">Select Categorie</option>
+                  <option value="">Select Categorie</option>
                 </select>
                 <center>
                   <input type="button" id="add_sous_categ"  class="form-control btn btn-info w-50 mt-3" value="Save">

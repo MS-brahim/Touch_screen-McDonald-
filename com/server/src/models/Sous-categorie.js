@@ -4,7 +4,6 @@ const Categorie = require('./Categorie');
 const sousCategorieSchema = new mongoose.Schema({
     sous_categorie_name:{
         type:String,
-        required:true,
         unique:true
     },
     categorie_id:{
