@@ -93,21 +93,40 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview">
+          <li class="nav-item has-treeview menu-open">
             <a href="./index.html" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="fas fa-bullhorn nav-icon"></i>
-              <p>
-                Promo
-              </p>
-            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#navProduct" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Products</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#navCodeP" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Code Promo</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#navCat" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Categorie</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#navSousCat" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Sous Categorie</p>
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
@@ -174,7 +193,7 @@
         <div class="row">
           <div class="col-sm-8">
             <!-- /.card -->
-            <div class="card">
+            <div class="card" id="navProduct">
               <div class="card-header">
                 <h3 class="card-title">Product table</h3>
                 <div class="float-right">
@@ -264,7 +283,8 @@
             <!-- /.card -->
           </div>
           <div class="col-sm-4">
-            <div class="card">
+            <!-- card categorie  -->
+            <div class="card" id="navCat">
               <button id="addCateg" class="form-control btn btn-dark">Add new categorie <i class="fas fa-plus-square"></i></button>
               <form id="formCateg" class="form-group">
                 <input type="text" id="categorie_name" class="form-control" placeholder="Catégorie name">
@@ -301,7 +321,8 @@
             </div>
             <!-- /.card -->
             <hr>
-            <div class="card">
+            <!-- card sous categorie  -->
+            <div class="card" id="navSousCat">
               <button  class="form-control btn btn-info">Add new Sous categorie <i class="fas fa-plus-square"></i></button>
               <form class="form-group p-3">
                 <input type="text" id="sCateg_name" class="form-control my-2" placeholder="Sous catégorie name">
@@ -342,6 +363,48 @@
               </div>
               <!-- /.card-body -->
             </div>
+            <hr>
+            <!-- card Code Promo  -->
+            <div class="card" id="navCodeP">
+              <div class="form-control bg-primary"><i class="fas fa-bullhorn nav-icon"></i> Add new Code Promo</div>
+              <form class="form-group p-4">
+                <input type="text" id="codePromo" class="form-control" placeholder="Code Promo">
+                <select  id="selectProd" class="form-control my-2">
+                  <option value="undefined">Select Product</option>
+                </select>
+                <input type="submit" id="addCodePromo" class="form-control btn btn-primary w-50 mt-3" value="Save">
+              </form>
+              <div class="card-header">
+                <h3 class="card-title">Code Promo</h3>
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0" style="height: 300px;">
+                <table class="table table-hover table-head-fixed text-nowrap" >
+                  <thead>
+                    <tr>
+                      <th>Code Promo</th>
+                      <th>Product</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="">
+
+                    <!-- get data categories -->
+
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
           </div>
           <!-- /.col -->
         </div>
@@ -363,6 +426,11 @@
 </div>
 <!-- ./wrapper -->
 
+<script>
+  $("#addCP").click(function(){
+    $("#formCodeP").slideToggle("slow");
+});
+</script>
 <!-- dashboard srcipts -->
 <script src="dist/js/dahsboard/categorie.js"></script>
 <script src="dist/js/dahsboard/sous-categorie.js"></script>

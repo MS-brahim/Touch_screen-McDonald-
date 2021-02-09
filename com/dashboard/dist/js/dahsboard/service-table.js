@@ -19,7 +19,7 @@ $(function(){
                 }
                 table.append(`
                     <tr>
-                        <td>${tableRow.table}</td>
+                        <td id="tabl">${tableRow.table}</td>
                         <td>${$tabSts}</td>
                         <td class="text-center py-0 align-middle">
                             <div class="btn-group btn-group-sm">
@@ -90,19 +90,50 @@ function deleteTable(id) {
 
 // EDIT TABLE STATUS 
 function editTable(id) {
-    fetch('http://localhost:3000/table/'+id)
-    .then(response => response.json())
-    .then(data => data.map(ok=>{
+    // fetch('http://localhost:3000/table/'+id)
+    // .then(response => response.json())
+    // .then(data => data.map(ok=>{
     
-        Swal.fire({
-        title: 'Enter your IP address',
-        input: 'text',
-        inputLabel: 'Your IP address',
-        inputValue: ok.table,
-        showCancelButton: true,
-        }) 
-    }).join(''))
-      
+    //     Swal.fire({
+    //     title: 'Enter your IP address',
+    //     input: 'text',
+    //     inputLabel: 'Your IP address',
+    //     inputValue: ok.table,
+    //     showCancelButton: true,
+    //     }) 
+    // }).join(''))
+    let modelEdit = $('#modelEdit')
+    modelEdit.html('<input type="text"  ')
+
+    $.ajax({
+        method: 'GET',
+        url: 'http://localhost:3000/table/'+id,
+        success:function(request){
+            console.log(request)
+            // inp1.replaceWith("<input class='form-control-sm' type='text' value='"+request.table+"'>");
+
+            // Swal.fire({
+            // title: 'Update service a table',
+            // input: 'text',
+            // inputValue: request.table,
+            // showCancelButton: true,
+            // confirmButtonText: '<button onclick="savedTable('+request._id+')">btn</button>',
+            // }) 
+        },
+        timeout: 1000
+    })
+    // function savedTable(id) {
+    //     $.ajax({
+    //         method: 'PATCH',
+    //         url: 'http://localhost:3000/table/update/'+id,
+    //         success:function(response){
+    //             $('#tableStatus').val(response);
+    //             // location.reload();
+    //             console.log(response)
+    //         },
+    //         timeout: 1000
+    //     })
+    // }
     // $.ajax({
     //     method: 'PATCH',
     //     url: 'http://localhost:3000/table/update/'+id,

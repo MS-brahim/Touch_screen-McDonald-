@@ -18,14 +18,19 @@ $(function () {
         }
     });
 
-    // add new category 
-    $("#addCateg").click(function(){
-        $("#formCateg").slideToggle("slow");
-    });
-       
-    $('#add_categrie').on('click', function(){
-        var $categoryName = $('#categorie_name');
+})
 
+// add new category 
+$("#addCateg").click(function(){
+    $("#formCateg").slideToggle("slow");
+});
+   
+$('#add_categrie').on('click', function(e){
+    var $categoryName = $('#categorie_name');
+    if ($categoryName.val()=="") {
+        $categoryName.addClass('is-invalid');
+        e.preventDefault();
+    } else {
         $.post({
             method:'POST',
             url:'http://localhost:3000/categorie/add',
@@ -43,9 +48,10 @@ $(function () {
                     location.reload();
                 });
             },
+            timeout: 1000
         })
-    });
-})
+    }
+});
 
 // delete category
 function deleteCategory(categ_id) {
@@ -62,7 +68,8 @@ function deleteCategory(categ_id) {
             }).then(function() {
                 location.reload();
             });
-        }
+        },
+        timeout: 1000
     })
 }
 

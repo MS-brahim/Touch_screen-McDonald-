@@ -30,13 +30,14 @@ const sousCategoryRoute = require('./src/routes/sous_categorie-route');
 const productRoute = require('./src/routes/product-route');
 const tableService = require('./src/routes/service_table-route');
 const codePromo = require('./src/routes/code_promo-route');
+const ticket = require('./src/routes/ticket-route');
 
 server.use('/categorie', categorieRoute);
 server.use('/sous_categorie', sousCategoryRoute);
 server.use('/product', productRoute);
 server.use('/table', tableService);
 server.use('/code_promo', codePromo);
-
+server.use('/ticket', ticket);
 
 
 // listening to server 

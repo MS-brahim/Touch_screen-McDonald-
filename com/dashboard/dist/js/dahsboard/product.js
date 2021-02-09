@@ -22,7 +22,7 @@ $(function () {
                 
                 getProd.append(`
                 <tr>
-                    <td><img src="uploads/${prodRow.product_image}" alt="" width="100"></td>
+                    <td><img src="../../uploads/${prodRow.product_image}" alt="" width="100"></td>
                     <td>${prodRow.product_name}</td>
                     <td>${prodRow.price}</td>
                     <td>${prodRow.sous_categorie_id.sous_categorie_name}</td>
@@ -37,14 +37,22 @@ $(function () {
             });
         }
     });
+});
 
-    // add new product        
-    $('#add_product').on('click', function(){
-        var $productName = $('#productName');
-        var $productPrice = $('#productPrice');
-        var $sousCategID = $('#sousCategID');
-        var $productImage = $('#productImage');
+// add new product        
+$('#add_product').on('click', function(e){
+    var $productName = $('#productName');
+    var $productPrice = $('#productPrice');
+    var $sousCategID = $('#sousCategID');
+    var $productImage = $('#productImage');
 
+    if ($productName.val()=="" || $productPrice.val()=="" || $productImage.val()=="" || $sousCategID.val()=="") {
+        e.preventDefault();
+        $productName.addClass('is-invalid');
+        $productPrice.addClass('is-invalid');
+        $productImage.addClass('is-invalid');
+        $sousCategID.addClass('is-invalid');
+    } else {
         $.post({
             method:'POST',
             url:'http://localhost:3000/product/add',
@@ -65,9 +73,9 @@ $(function () {
                     location.reload();
                 });
             },
-        })
-    });
-})
+        })   
+    }
+});
 
 // DELETE PRODUCT
 function deleteProd(id) {

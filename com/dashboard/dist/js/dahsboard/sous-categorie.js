@@ -40,12 +40,16 @@ $(function () {
             });
         },
     });
+})
 
-    // ADD NEW SOUS CATEGORIE        
-    $('#add_sous_categ').on('click', function(){
-        var $sCateg_name = $('#sCateg_name');
-        var $selectCateg = $('#selectCateg');
-
+// ADD NEW SOUS CATEGORIE        
+$('#add_sous_categ').on('click', function(e){
+    var $sCateg_name = $('#sCateg_name');
+    var $selectCateg = $('#selectCateg');
+    if ($sCateg_name.val()=="") {
+        $sCateg_name.addClass('is-invalid');
+        e.preventDefault();
+    } else {
         $.post({
             method:'POST',
             url:'http://localhost:3000/sous_categorie/add',
@@ -65,9 +69,10 @@ $(function () {
                     location.reload();
                 });
             },
+            timeout: 1000
         })
-    });
-})
+    }
+});
 
 // DELETE SOUS CATEGORIE
 function deleteSousCategory(id) {
