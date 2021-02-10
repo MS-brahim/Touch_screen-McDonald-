@@ -205,7 +205,7 @@
                   <!-- Modal add product -->
                   <div class="modal fade" id="addProduct" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                     <div class="modal-dialog" role="document">
-                      <form class="modal-content"  >
+                      <form class="modal-content"  data-form="productImage">
                         <div class="modal-header bg-warning ">
                           <h5 class="modal-title text-white">New product</h5>
                             <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
@@ -232,13 +232,16 @@
                             <div class="form-group">
                               <label for="productImage">File input</label>
                               <div class="input-group">
-                                <div class="custom-file">
-                                  <input type="file" name="fileImg" class="custom-file-input" id="productImage">
-                                  <label class="custom-file-label" for="productImage">Select Image</label>
-                                </div>
+                                <!-- <div class="custom-file"> -->
+                                  <input type="file" name="productImage" class="" id="productImage"  onchange="uploadImg(this.value)">
+                                  <!-- <label class="custom-file-label" for="productImage">Select Image</label> -->
+                                <!-- </div> -->
                                 <div class="input-group-append">
                                   <span class="input-group-text" id="">Upload</span>
                                 </div>
+                                <script>
+                                  
+                                </script>
                               </div>
                             </div>
                           </div>
@@ -395,7 +398,7 @@
                       <th>Action</th>
                     </tr>
                   </thead>
-                  <tbody id="">
+                  <tbody id="getPromoData">
 
                     <!-- get data categories -->
 
@@ -435,6 +438,7 @@
 <script src="dist/js/dahsboard/categorie.js"></script>
 <script src="dist/js/dahsboard/sous-categorie.js"></script>
 <script src="dist/js/dahsboard/product.js"></script>
+<script src="dist/js/dahsboard/code-promo.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 <!-- jQuery -->

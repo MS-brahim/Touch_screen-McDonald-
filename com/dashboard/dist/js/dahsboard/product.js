@@ -14,7 +14,7 @@ $(function () {
                 }
                 getProd.append(`
                 <tr>
-                    <td><img src="../../uploads/${prodRow.product_image}" alt="" width="100"></td>
+                    <td><img src="uploads/${prodRow.product_image}" alt="" width="100"></td>
                     <td>${prodRow.product_name}</td>
                     <td>${prodRow.price} Dhs</td>
                     <td>${prodCat}</td>
@@ -73,6 +73,7 @@ $('#add_product').on('click', function(e){
         e.preventDefault();
         $productImage.addClass('is-invalid');
     } else {
+        
         $.post({
             method:'POST',
             url:'http://localhost:3000/product/add',
@@ -114,3 +115,7 @@ function deleteProd(id) {
         }
     })
 }
+
+function uploadImg(im) {
+    im.replace('C:\\fakepath\\','');
+ }
