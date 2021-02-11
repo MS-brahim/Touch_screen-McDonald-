@@ -34,7 +34,10 @@ const Product = require('../models/Product');
 // find all products
 router.get('/', async (req, res, next)=>{
     try {
-        const product = await Product.find().populate('sous_categorie_id').populate('categorie_id');
+        const product = await Product.find().populate({
+            path: 'sous_categorie_id',
+            populate: { path: 'categorie_id' }
+        });
         res.json(product);
     } catch (err) {
         res.json({message:err});

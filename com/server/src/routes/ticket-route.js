@@ -52,16 +52,6 @@ router.delete('/delete/:id', async (req, res, next)=>{
     }
 });
 
-// Update Ticket 
-router.patch('/update/:id', async (req, res, next)=>{
-    try {
-        const updateTicket = await Ticket.updateOne(
-            {_id: req.params.id},
-            {$set:{ticket_title:req.body.ticket_title}});
-        res.json(updateTicket);
-    } catch (err) {
-        res.json({message:err});
-    }
-});
+
 
 module.exports = router;

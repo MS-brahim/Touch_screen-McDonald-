@@ -191,7 +191,7 @@
         <!-- Main content -->
       <div class="container-fluid">
         <div class="row">
-          <div class="col-sm-8">
+          <div class="col-md-8">
             <!-- /.card -->
             <div class="card" id="navProduct">
               <div class="card-header">
@@ -232,10 +232,10 @@
                             <div class="form-group">
                               <label for="productImage">File input</label>
                               <div class="input-group">
-                                <!-- <div class="custom-file"> -->
+                                <div class="custom-file">
                                   <input type="file" name="productImage" class="" id="productImage"  onchange="uploadImg(this.value)">
-                                  <!-- <label class="custom-file-label" for="productImage">Select Image</label> -->
-                                <!-- </div> -->
+                                  <label class="custom-file-label" for="productImage">Select Image</label>
+                                </div>
                                 <div class="input-group-append">
                                   <span class="input-group-text" id="">Upload</span>
                                 </div>
@@ -263,7 +263,7 @@
                       <th width="22">Photo</th>
                       <th>Product Name</th>
                       <th>Price</th>
-                      <th>Sous categorie</th>
+                      <th>Category(Sous Category)</th>
                       <th width=auto>Action</th>
                     </tr>
                   </thead>
@@ -276,7 +276,7 @@
                     <th width="100">Photo</th>
                     <th>Product Name</th>
                     <th>Price</th>
-                    <th>Sous categorie</th>
+                    <th>Category(Sous Category)</th>
                     <th width=80>Action</th>
                   </tfoot>
                 </table>
@@ -285,7 +285,7 @@
             </div>
             <!-- /.card -->
           </div>
-          <div class="col-sm-4">
+          <div class="col-md-4">
             <!-- card categorie  -->
             <div class="card" id="navCat">
               <button id="addCateg" class="form-control btn btn-dark">Add new categorie <i class="fas fa-plus-square"></i></button>
@@ -373,9 +373,9 @@
               <form class="form-group p-4">
                 <input type="text" id="codePromo" class="form-control" placeholder="Code Promo">
                 <select  id="selectProd" class="form-control my-2">
-                  <option value="undefined">Select Product</option>
+                  <option value="">Select Product</option>
                 </select>
-                <input type="submit" id="addCodePromo" class="form-control btn btn-primary w-50 mt-3" value="Save">
+                <input type="button" id="addCodePromo" class="form-control btn btn-primary w-50 mt-3" value="Save">
               </form>
               <div class="card-header">
                 <h3 class="card-title">Code Promo</h3>

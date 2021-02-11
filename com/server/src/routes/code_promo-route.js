@@ -11,7 +11,7 @@ const CodePromo = require('../models/Code-promo');
 // GET ALL DATA CODE PROMO
 router.get('/', async (req, res, next)=>{
     try {
-        const codePromo = await CodePromo.find();
+        const codePromo = await CodePromo.find().populate('product_id');
         res.json(codePromo);
     } catch (error) {
         res.json({message:error});
@@ -32,7 +32,8 @@ router.get('/:id', async (req, res, next)=>{
 // CREATE NEW CODE PROMO
 router.post('/add', async (req, res, next)=>{
     const codePromo = new CodePromo({
-    code_promo: req.body.code_promo
+    code_promo: req.body.code_promo,
+    product_id: req.body.product_id
     });
     try {
         const saveCode = await codePromo.save();

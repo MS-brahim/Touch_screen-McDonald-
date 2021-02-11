@@ -6,12 +6,17 @@ $(function () {
             let getProd = $('#getProduct');
             getProd.html('');
             products.forEach(prodRow => {
-                let prodCat;
-                if (prodRow.sous_categorie_id._id.sous_categorie_name==null) {
-                    prodCat = prodRow.sous_categorie_id.sous_categorie_name;
-                }else{
-                    prodCat = prodRow.sous_categorie_id
+                let scIsN = prodRow.sous_categorie_id;
+                let prodCat="";
+                if (scIsN.sous_categorie_name=="") {
+
+                    prodCat = prodRow.sous_categorie_id.categorie_id.categorie_name;
                 }
+                if (scIsN.sous_categorie_name!="") {
+
+                    prodCat = prodRow.sous_categorie_id.categorie_id.categorie_name +'('+prodRow.sous_categorie_id.sous_categorie_name+')';
+                }
+                
                 getProd.append(`
                 <tr>
                     <td><img src="uploads/${prodRow.product_image}" alt="" width="100"></td>
