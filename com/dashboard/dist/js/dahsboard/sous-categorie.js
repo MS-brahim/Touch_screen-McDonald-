@@ -21,7 +21,7 @@ $(function () {
         success: function(sousCategory) {
             $.each(sousCategory, function(i, rowSC) {
                 let categName;
-                if (rowSC.sous_categorie_name=="") {
+                if (rowSC.sous_categorie_name==undefined) {
                     categName="<b>-</b>";
                 }else{
                     categName=rowSC.sous_categorie_name

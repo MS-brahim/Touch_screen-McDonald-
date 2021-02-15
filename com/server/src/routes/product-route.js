@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
 const multer = require('multer');
-const upload = multer({dest:'uploads/'});
+const upload = multer({dest:'../../uploads'});
 
 
 // const storage = multer.diskStorage({
@@ -56,7 +56,7 @@ router.get('/:id', async (req, res, next)=>{
 });
 
 // Create new product 
-router.post('/add', async (req, res, next)=>{
+router.post('/add', upload.single('uploads'), async (req, res, next)=>{
     const product = new Product({
     product_name        : req.body.product_name,
     product_image       : req.body.product_image,
@@ -87,7 +87,10 @@ router.patch('/update/:id', async (req, res, next)=>{
     try {
         const updateProduct = await Product.updateMany(
             {_id: req.params.id},
-            {$set:{product_name:req.body.product_name}});
+            {
+                $set:{product_name:req.body.product_name},
+                $set:{price:req.body.price}
+            });
         res.json(updateProduct);
     } catch (err) {
         res.json({message:err});

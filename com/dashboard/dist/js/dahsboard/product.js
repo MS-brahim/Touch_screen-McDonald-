@@ -25,7 +25,7 @@ $(function () {
                     <td>${prodCat}</td>
                     <td class="text-center py-0 align-middle">
                         <div class="btn-group btn-group-sm">
-                            <a href="#" class="btn btn-info"><i class="fas fa-edit"></i></a>
+                            <a href="#" class="btn btn-info" onclick="updateProd('${prodRow._id}')"><i class="fas fa-edit"></i></a>
                             <a href="#" class="btn btn-danger text-white" onclick="deleteProd('${prodRow._id}')"><i class="fas fa-trash"></i></a>
                         </div>
                     </td>
@@ -54,13 +54,14 @@ $.ajax({
     },
 });
 
-// add new product        
+// add new product  
+var $productName = $('#productName');
+var $productPrice = $('#productPrice');
+var $sousCategID = $('#sousCategID');
+var $productImage = $('#productImage');          
 $('#add_product').on('click', function(e){
-    let $productName = $('#productName');
-    let $productPrice = $('#productPrice');
-    let $sousCategID = $('#sousCategID');
-    let $productImage = $('#productImage');
 
+    
 
     if ($productName.val()=="") {
         e.preventDefault();
@@ -116,6 +117,49 @@ function deleteProd(id) {
                 timer: 1500
             }).then(function() {
                 location.reload();
+            });
+        }
+    })
+}
+
+function updateProd(id) {
+    // $('#addProduct').show()
+    $('#addProduct').modal('show')
+    console.log(id)
+    $('#add_product').replaceWith('<button type="submit" id="edit_product" class="btn btn-warning text-white">Save Change</button>')
+    $.ajax({
+        method: 'GET',
+        url: 'http://localhost:3000/product/'+id,
+        success:function(data){
+            $productName.val(data.product_name);
+            // $productImage.val(data.product_image);
+            $productPrice.val(data.price);
+            // $sousCategID.val(data.sous_categorie_id.sous_categorie_name);
+            $('#edit_product').on('click', function(){
+    
+                $.ajax({
+                    method:'PATCH',
+                    url:'http://localhost:3000/product/update/'+id,
+                    data: {
+                        product_name: $productName.val(),
+                        // productImage: $productImage.val(),
+                        // sous_categorie_id: $sousCategID.val(),
+                        price:$productPrice.val()
+                    },
+                    success:function(){
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Product has been Updated',
+                            showConfirmButton: false,
+                            timer: 1500
+                        }).then(function() {
+                            location.reload();
+                        });
+                    },
+                    timeout: 1000
+                })
+                
             });
         }
     })

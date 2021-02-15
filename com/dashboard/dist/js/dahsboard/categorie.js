@@ -23,10 +23,10 @@ $(function () {
 // add new category 
 $("#addCateg").click(function(){
     $("#formCateg").slideToggle("slow");
-});
-   
+});  
+var $categoryName = $('#categorie_name');
 $('#add_categrie').on('click', function(e){
-    var $categoryName = $('#categorie_name');
+    
     if ($categoryName.val()=="") {
         $categoryName.addClass('is-invalid');
         e.preventDefault();
@@ -75,13 +75,40 @@ function deleteCategory(categ_id) {
 
 // update category 
 function updateCategory(categ_id) {
+    console.log(categ_id)
+    
+    $("#formCateg").show("slow");
+    $('#add_categrie').replaceWith('<input type="submit" id="edit_categrie" class="form-control btn btn-dark w-50 mt-3" value="Save Change">')
     $.ajax({
-        method: 'PATCH',
-        url: 'http://localhost:3000/categorie/update/'+categ_id,
+        method: 'GET',
+        url: 'http://localhost:3000/categorie/'+categ_id,
         success:function(data){
-            $('#categorie_name').val(data.$categoryName);
-            location.reload();
+            $categoryName.val(data.categorie_name);
+            $('#edit_categrie').on('click', function(){
+    
+                $.ajax({
+                    method:'PATCH',
+                    url:'http://localhost:3000/categorie/update/'+categ_id,
+                    data: {
+                        categorie_name:$categoryName.val()
+                    },
+                    success:function(){
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Categorie has been Updated',
+                            showConfirmButton: false,
+                            timer: 1500
+                        }).then(function() {
+                            location.reload();
+                        });
+                    },
+                    timeout: 1000
+                })
+                
+            });
         }
     })
+
 }
 
