@@ -3,29 +3,29 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 const multer = require('multer');
 // const upload = multer({dest:'../../uploads'});
-const path = require('path');
+
 
 // models
 const Product = require('../models/Product');
 
 // uploads image 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, '../dashboard/uploads/');
-    },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + path.extname(file.originalname));
-    },
-})
+// const storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//         cb(null, '../dashboard/uploads/');
+//     },
+//     filename: function (req, file, cb) {
+//         cb(null, Date.now() + file.originalname);
+//     },
+// })
 
-const fileFilter = (req, file, cb)=>{
-    if (file.mimetype ==='image/jpeg' || file.mimetype === 'image/png') {
-        cb(null, true)
-    }else{
-        cb(null, false)
-    }
-}
-const upload = multer({storage:storage, fileFilter:fileFilter});
+// const fileFilter = (req, file, cb)=>{
+//     if (file.mimetype ==='image/jpeg' || file.mimetype === 'image/png') {
+//         cb(null, true)
+//     }else{
+//         cb(null, false)
+//     }
+// }
+// const upload = multer({storage:storage, fileFilter:fileFilter});
 
 // middleware
 router.use(bodyParser.json());
@@ -56,10 +56,10 @@ router.get('/:id', async (req, res, next)=>{
 });
 
 // Create new product 
-router.post('/add', upload.single('product_image'), async (req, res, next)=>{
+router.post('/add', async (req, res, next)=>{
     const product = new Product({
     product_name        : req.body.product_name,
-    product_image       : req.file.path,
+    product_image       : req.body.product_image,
     price               : req.body.price,
     sous_categorie_id   : req.body.sous_categorie_id,
     });
