@@ -42,3 +42,5 @@ server.use('/ticket', ticket);
 
 // listening to server 
 server.listen(3000);
+
+module.exports = server;
